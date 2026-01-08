@@ -17,14 +17,14 @@ export function FilterTabs({ activeTab, onTabChange }: FilterTabsProps) {
   ];
 
   return (
-    <div className="inline-flex p-1 bg-gray-100 dark:bg-gray-800  rounded-md gap-1">
+    <div className="inline-flex p-1 bg-gray-100 dark:bg-light-black dark:text-white  rounded-md gap-1">
       {tabs.map((tab) => (
         <button
           key={tab.id}
           onClick={() => onTabChange(tab.id)}
           className={`px-10 py-2 text-sm cursor-pointer font-medium  rounded-md transition-all ${
             activeTab === tab.id
-              ? "bg-white text-gray-900 shadow-sm "
+              ? "bg-white dark:bg-black dark:text-white text-black shadow-sm "
               : "text-gray-400 "
           }`}
         >

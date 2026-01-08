@@ -19,12 +19,12 @@ export function TableBody<T extends TableRow>({
           <tr key={index} className="">
             {enableSelection && (
               <td className="px-4 py-4">
-                <div className="w-4 h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+                <div className="w-4 h-4 bg-gray-200 dark:bg-light-black rounded animate-pulse" />
               </td>
             )}
             {columns.map((column) => (
               <td key={column.id} className="px-4 py-4 ">
-                <div className="h-4 bg-gray-200  dark:bg-gray-700 rounded animate-pulse" />
+                <div className="h-4 bg-gray-200  dark:bg-light-black rounded animate-pulse" />
               </td>
             ))}
           </tr>
@@ -39,7 +39,7 @@ export function TableBody<T extends TableRow>({
         <tr>
           <td
             colSpan={columns.length + (enableSelection ? 1 : 0)}
-            className="px-4 py-12 text-center  text-gray-500 dark:text-gray-400"
+            className="px-4 py-12 text-center  text-gray-500 dark:text-light-black"
           >
             {emptyMessage}
           </td>
@@ -49,7 +49,7 @@ export function TableBody<T extends TableRow>({
   }
 
   return (
-    <tbody className="bg-white dark:bg-gray-900">
+    <tbody className="bg-white dark:bg-black">
       {data.map((row, rowIndex) => (
         <TableRowComponent
           key={row.id}

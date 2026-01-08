@@ -10,7 +10,7 @@ export function TableHeader<T extends TableRow>({
   indeterminate,
 }: TableHeaderProps<T>) {
   return (
-    <thead className="bg-gray-100 dark:bg-gray-800">
+    <thead className="bg-gray-100 dark:bg-light-black">
       <tr>
         {enableSelection && (
           <th className="w-12 px-4 py-3 text-left rounded-tl-md rounded-bl-md">

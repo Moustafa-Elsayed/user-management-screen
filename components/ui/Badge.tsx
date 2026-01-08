@@ -12,22 +12,18 @@ export function Badge({
   className = "",
 }: BadgeProps) {
   const baseStyles =
-    "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium";
+    "inline-flex items-center justify-center px-3 py-1 rounded-md text-base font-medium whitespace-nowrap max-w-fit";
 
   const variantStyles = {
-    active: "bg-[#d1fae5] text-[#065f46]",
-    absent: "bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300",
-    default: "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300",
+    active: "border dark:border-gray-800 border-gray-200 text-gray-500",
+    absent: "border dark:border-gray-800 border-gray-200 text-gray-500",
+    default: "border dark:border-gray-800 border-gray-200 text-gray-500",
   };
 
   return (
     <span className={`${baseStyles} ${variantStyles[variant]} ${className}`}>
-      {variant === "active" && (
-        <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
-      )}
-      {variant === "absent" && (
-        <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
-      )}
+      {variant === "active" && <span />}
+      {variant === "absent" && <span />}
       {children}
     </span>
   );

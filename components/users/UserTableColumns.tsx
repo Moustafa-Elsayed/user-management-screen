@@ -68,7 +68,7 @@ export function getUserColumns({
       header: "Status",
       accessorKey: "status",
       cell: ({ row }) => <StatusBadge status={row.status} />,
-      width: "120px",
+      width: "150px",
     },
     {
       id: "actions",

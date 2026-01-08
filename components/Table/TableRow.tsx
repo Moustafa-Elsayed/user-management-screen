@@ -59,10 +59,19 @@ export function TableRowComponent<T extends TableRow>({
           ? String(value)
           : "";
 
+        const cellStyle: React.CSSProperties = {};
+        if (column.width) {
+          cellStyle.width = column.width;
+        }
+        if (column.minWidth) {
+          cellStyle.minWidth = column.minWidth;
+        }
+
         return (
           <td
             key={column.id}
             className="px-4 py-4 text-sm text-gray-900 dark:text-gray-100"
+            style={cellStyle}
           >
             {cellContent}
           </td>

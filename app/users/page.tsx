@@ -63,7 +63,7 @@ export default function UsersPage() {
   });
 
   return (
-    <div className="min-h-screen  py-8">
+    <div className="min-h-screen  py-8 bg-white dark:bg-black">
       <div className="container mx-auto">
         <div className=" ">
           <div className=" pb-3">

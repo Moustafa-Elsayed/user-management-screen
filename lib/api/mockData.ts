@@ -10,15 +10,14 @@ const mockUserData = [
     project: {
       name: "Monday.com",
       description: "Campaign Strategy Brainstor...",
-      icon: "https://cdn.monday.com/images/logos/monday_logo_icon.png",
+      icon: "/icons/Monday.com.png",
     },
     document: {
       name: "brown-james.pdf",
       size: "2.1 MB",
     },
     status: "active" as const,
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face",
+    avatar: "/icons/image1.png",
   },
   {
     id: 2,
@@ -29,15 +28,14 @@ const mockUserData = [
     project: {
       name: "Notion",
       description: "Employee Engagement Survey",
-      icon: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png",
+      icon: "/icons/Notion.png",
     },
     document: {
       name: "williams-sophia.pdf",
       size: "2.4 MB",
     },
     status: "active" as const,
-    avatar:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face",
+    avatar: "/icons/image2.png",
   },
   {
     id: 3,
@@ -48,15 +46,14 @@ const mockUserData = [
     project: {
       name: "Spotify",
       description: "Vision and Goal Setting Session",
-      icon: "https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png",
+      icon: "/icons/Spotify.png",
     },
     document: {
       name: "taylor-arthur.pdf",
       size: "2.4 MB",
     },
     status: "absent" as const,
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+    avatar: "/icons/image3.png",
   },
   {
     id: 4,
@@ -67,15 +64,14 @@ const mockUserData = [
     project: {
       name: "Formcarry",
       description: "User Feedback Analysis",
-      icon: "https://formcarry.com/assets/img/formcarry-logo.svg",
+      icon: "/icons/Formcarry.png",
     },
     document: {
       name: "wright-emma.pdf",
       size: "1.9 MB",
     },
     status: "active" as const,
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+    avatar: "/icons/image4.png",
   },
   {
     id: 5,
@@ -86,15 +82,14 @@ const mockUserData = [
     project: {
       name: "Loom",
       description: "Data Analysis Methodology Di...",
-      icon: "https://cdn.worldvectorlogo.com/logos/loom-icon.svg",
+      icon: "/icons/Loom.png",
     },
     document: {
       name: "johnson-matthew.pdf",
       size: "2.9 MB",
     },
     status: "absent" as const,
-    avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face",
+    avatar: "/icons/image7.png",
   },
   {
     id: 6,
@@ -105,15 +100,14 @@ const mockUserData = [
     project: {
       name: "Tidal",
       description: "Design Trends and Inspiration...",
-      icon: "https://upload.wikimedia.org/wikipedia/commons/0/05/Tidal_Logo.svg",
+      icon: "/icons/Tidal.png",
     },
     document: {
       name: "perez-laura.pdf",
       size: "2.5 MB",
     },
     status: "absent" as const,
-    avatar:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40&h=40&fit=crop&crop=face",
+    avatar: "/icons/image1.png",
   },
   {
     id: 7,
@@ -124,15 +118,14 @@ const mockUserData = [
     project: {
       name: "Dropbox",
       description: "Process Optimization Brainstor...",
-      icon: "https://cfl.dropboxstatic.com/static/images/logo_catalog/dropbox_logo_glyph_blue_m1.svg",
+      icon: "/icons/Dropbox.png",
     },
     document: {
       name: "chen-wei.pdf",
       size: "2.6 MB",
     },
     status: "active" as const,
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+    avatar: "/icons/image2.png",
   },
 ];
 
