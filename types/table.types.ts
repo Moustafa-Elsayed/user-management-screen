@@ -42,6 +42,9 @@ export interface TableHeaderProps<T extends TableRow> {
   onSelectAll?: () => void;
   allSelected?: boolean;
   indeterminate?: boolean;
+  onSort?: (columnId: string) => void;
+  sortColumn?: string;
+  sortDirection?: "asc" | "desc";
 }
 
 export interface TableBodyProps<T extends TableRow> {

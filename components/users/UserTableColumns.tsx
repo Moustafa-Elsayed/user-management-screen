@@ -77,6 +77,7 @@ export function getUserColumns({
         <UserActionMenu user={row} onEdit={onEdit} onDelete={onDelete} />
       ),
       width: "60px",
+      enableSorting: false,
     },
   ];
 }
