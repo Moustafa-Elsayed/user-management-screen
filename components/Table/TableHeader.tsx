@@ -11,7 +11,6 @@ export function TableHeader<T extends TableRow>({
   indeterminate,
   onSort,
   sortColumn,
-  sortDirection,
 }: TableHeaderProps<T>) {
   return (
     <thead className="bg-gray-100 dark:bg-light-black">

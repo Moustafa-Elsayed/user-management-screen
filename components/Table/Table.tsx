@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import { TableRow, TableProps } from "@/types";
+import { TableRow, TableProps, SortableValue } from "@/types";
 import { TableHeader } from "./TableHeader";
 import { TableBody } from "./TableBody";
 
@@ -62,8 +62,8 @@ export function Table<T extends TableRow>({
     if (!column || column.enableSorting === false) return data;
 
     return [...data].sort((a, b) => {
-      let aValue: any;
-      let bValue: any;
+      let aValue: SortableValue | Record<string, SortableValue>;
+      let bValue: SortableValue | Record<string, SortableValue>;
 
       if (column.accessorKey) {
         aValue = a[column.accessorKey];
@@ -71,11 +71,26 @@ export function Table<T extends TableRow>({
       } else if (column.accessorFn) {
         aValue = column.accessorFn(a);
         bValue = column.accessorFn(b);
+      } else {
+        return 0;
       }
 
       if (aValue === bValue) return 0;
+      if (aValue == null) return 1;
+      if (bValue == null) return -1;
 
-      const comparison = aValue < bValue ? -1 : 1;
+      let comparison = 0;
+
+      if (typeof aValue === "number" && typeof bValue === "number") {
+        comparison = aValue - bValue;
+      } else if (aValue instanceof Date && bValue instanceof Date) {
+        comparison = aValue.getTime() - bValue.getTime();
+      } else {
+        const aStr = String(aValue);
+        const bStr = String(bValue);
+        comparison = aStr.localeCompare(bStr);
+      }
+
       return sortDirection === "asc" ? comparison : -comparison;
     });
   }, [data, sortColumn, sortDirection, columns]);

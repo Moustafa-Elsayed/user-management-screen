@@ -1,16 +1,31 @@
 import { ReactNode } from "react";
 
+export type SortablePrimitive =
+  | string
+  | number
+  | boolean
+  | Date
+  | null
+  | undefined;
+
+export type SortableValue =
+  | SortablePrimitive
+  | { [key: string]: SortableValue };
+
 export interface TableRow {
   id: string | number;
-  [key: string]: unknown;
+  [key: string]: SortableValue | Record<string, SortableValue>;
 }
 
-export interface ColumnDef<T extends TableRow> {
+export interface ColumnDef<
+  T extends TableRow,
+  TValue extends SortableValue = SortableValue
+> {
   id: string;
   header: string | ReactNode;
   accessorKey?: keyof T;
-  accessorFn?: (row: T) => unknown;
-  cell?: (props: CellContext<T>) => ReactNode;
+  accessorFn?: (row: T) => TValue;
+  cell?: (props: CellContext<T, TValue>) => ReactNode;
   enableSorting?: boolean;
   enableFiltering?: boolean;
   width?: string | number;
@@ -18,10 +33,13 @@ export interface ColumnDef<T extends TableRow> {
   maxWidth?: string | number;
 }
 
-export interface CellContext<T extends TableRow> {
+export interface CellContext<
+  T extends TableRow,
+  TValue extends SortableValue = SortableValue
+> {
   row: T;
-  value: unknown;
-  column: ColumnDef<T>;
+  value: TValue;
+  column: ColumnDef<T, TValue>;
   rowIndex: number;
 }
 

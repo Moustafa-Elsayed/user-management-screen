@@ -9,7 +9,7 @@ interface ConfirmDialogProps {
   message: string;
   confirmText?: string;
   cancelText?: string;
-  variant?: "danger" | "default";
+  variant?: "danger" | "primary";
   children?: React.ReactNode;
 }
 
@@ -42,7 +42,7 @@ export function ConfirmDialog({
         <div className="p-6">
           <div className="flex items-start gap-4">
             {variant === "danger" && (
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/20 flex items-center justify-center">
+              <div className=" w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/20 flex items-center justify-center">
                 <svg
                   className="w-6 h-6 text-red-600 dark:text-red-400"
                   fill="none"

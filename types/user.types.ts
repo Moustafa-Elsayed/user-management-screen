@@ -1,4 +1,6 @@
-export interface User {
+import { TableRow, SortableValue } from "./table.types";
+
+export interface User extends TableRow {
   id: number;
   name: string;
   email: string;
@@ -15,7 +17,7 @@ export interface User {
   };
   status: "active" | "absent";
   avatar?: string;
-  [key: string]: unknown;
+  [key: string]: SortableValue | Record<string, SortableValue>;
 }
 
 export interface UpdateUserPayload {

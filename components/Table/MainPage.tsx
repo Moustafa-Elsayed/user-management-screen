@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { Table } from "@/components/Table";
-import { Button, ConfirmDialog } from "@/components/ui";
+import { Button, ConfirmDialog, EditUserDialog } from "@/components/ui";
 import { FilterTabs } from "@/components/users/FilterTabs";
 import { getUserColumns } from "@/components/users/UserTableColumns";
 import { useUsers } from "@/lib/hooks/useUsers";
@@ -29,6 +29,7 @@ export default function UsersPage() {
     isOpen: false,
     type: "single",
   });
+  const [editUser, setEditUser] = useState<User | null>(null);
 
   const { data, isLoading } = useUsers(currentPage, pageSize);
   const updateUserMutation = useUpdateUser();
@@ -42,7 +43,7 @@ export default function UsersPage() {
     }
 
     return data.data.filter((user) => user.status === activeTab);
-  }, [data?.data, activeTab]);
+  }, [data, activeTab]);
 
   const handleTabChange = (tab: FilterTab) => {
     setIsFiltering(true);
@@ -51,7 +52,17 @@ export default function UsersPage() {
   };
 
   const handleEdit = (user: User) => {
-    console.log("Edit user:", user);
+    setEditUser(user);
+  };
+
+  const handleSaveEdit = async (updatedUser: User) => {
+    await updateUserMutation.mutateAsync({
+      id: updatedUser.id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      title: updatedUser.title,
+      status: updatedUser.status,
+    });
   };
 
   const handleDelete = (user: User) => {
@@ -122,7 +133,7 @@ export default function UsersPage() {
       <div className="container mx-auto">
         <div className=" ">
           <div className=" pb-3">
-            <div className="flex items-center  justify-between mb-4">
+            <div className="flex items-center  justify-between mb-4 flex-wrap">
               <FilterTabs activeTab={activeTab} onTabChange={handleTabChange} />
               <Button
                 variant="danger"
@@ -159,6 +170,14 @@ export default function UsersPage() {
       >
         {dialogContent.children}
       </ConfirmDialog>
+
+      <EditUserDialog
+        key={editUser?.id}
+        isOpen={editUser !== null}
+        onClose={() => setEditUser(null)}
+        onSave={handleSaveEdit}
+        user={editUser}
+      />
     </div>
   );
 }
